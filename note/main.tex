@@ -1,0 +1,101 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{lineno}
+\linenumbers
+\usepackage{subfigure}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage{listings} %код внутри текста
+\usepackage{url} %ссылки на файлы 
+
+\usepackage{cmap} % search in PDF
+\usepackage[unicode, pdftex]{hyperref} % hyperlinks in doc
+
+%in the preamble
+%--------------------------------
+\usepackage[
+	style = gost-numeric,
+%	style = phys,
+% biblabel = brackets,
+%	eprint = true,
+	bibencoding=auto,
+	backend=bibtex,
+	sorting=none,
+	language=auto,
+	autolang=other,
+	doi=false,
+	url=false,
+	movenames=false,
+	maxbibnames=3
+	]{biblatex}
+	
+\addbibresource{biblio.bib}
+%--------------------------------
+
+
+\usepackage{indentfirst}
+\parindent=1.25cm
+
+\usepackage{geometry}
+\geometry{left=2.0cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\begin{document}
+
+    \begin{center} 
+        \textbf{\Large \underline{Analysis Note}}
+        
+        \large{ Report on the QA and run-by-run systematics in the Xe+Cs(I) run }\\[.2cm] 
+        
+        \normalsize
+        \textbf{ 
+            Author 1\footnote{E-mail: demanov1997@gmail.com}
+            } 
+        \setcounter{footnote}{0}
+        
+         \noindent
+            \underline{\hspace{17.5cm}}
+            \begin{center}
+                \textbf{Abstract} 
+            \end{center}
+            
+                \small
+               Text abstract  \cite{VoloshinZhang}
+                
+            
+            \normalsize
+            \noindent
+    \end{center}
+
+      
+    \normalsize
+    \noindent
+    \underline{\hspace{17.6cm}}
+
+    \tableofcontents
+    
+    \include{QA_section}
+    \include{framework}
+    \include{tree.root}
+
+
+    %Where the bibliography will be printed
+    \printbibliography
+    
+\end{document}

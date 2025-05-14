@@ -1,0 +1,28 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Quality Assurance (QA) study}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Number of digits in the detectors}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Vertex position}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Multiplicity}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Beam scintillation counters (BC)}{8}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Scintillation Veto counter (VC)}{9}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Fragment Detector (FD)}{10}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7} Forward Hadron Calorimeter (FHCal)}{12}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Forward Quartz Hodoscope (FQH)}{12}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Scintillation Wall (ScWall)}{13}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Silicon Beam Tracker (SiBT)}{13}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.11}Global tracks}{17}{subsection.1.11}%
+\contentsline {subsection}{\numberline {1.12}Mass squared distribution}{20}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}Event selection}{22}{subsection.1.13}%
+\contentsline {section}{\numberline {2}Framework}{24}{section.2}%
+\contentsline {subsection}{\numberline {2.1}convertBmn\_run8.C macro}{24}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}run8\_qa\_new.C macro}{25}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}GoldRuns\_script.C macro}{26}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Get\_VtxXYZ\_corrRunId.C macro}{26}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Get\_GraphiCuts\_cuts.C macro}{26}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Get\_BC1\_FD\_cuts.C macro}{27}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}refMult\_corr.C macro}{27}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Format .tree.root}{29}{section.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 

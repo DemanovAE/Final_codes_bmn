@@ -1,0 +1,120 @@
+\section{Format .tree.root}
+
+The format is a simple root tree. The tree includes the following branches:
+\begin{itemize}
+    \item RunId
+    \item BmnTrigInfo
+        \begin{itemize}
+            \item triggerMapBR - trigger masks (before reduction)
+            \item triggerMapAR - trigger masks (after reduction)
+        \end{itemize}
+    \item BD
+        \begin{itemize}
+            \item bdMult - multiplicity
+            \item bdModId - module id
+            \item bdModAmp
+        \end{itemize}
+    \item bc1 s(t,b)
+        \begin{itemize}
+            \item bc1sNSamples
+            \item bc1sIntegral - signal integral (BC)
+            \item bc1sAmplitude - signal amplitude (BC)
+            \item bc1sTdcValues
+            \item bc1sTdcTimes - time
+        \end{itemize}
+    \item VC s(t,b)
+        \begin{itemize}
+            \item vcsNSamples
+            \item vcsIntegral - signal integral (VC)
+            \item vcsAmplitude - signal amplitude (VC)
+            \item vcsTdcValues
+            \item vcsTdcTimes - time
+        \end{itemize}
+    \item FD
+        \begin{itemize}
+            \item fdNSamples
+            \item fdIntegral - signal integral (FD)
+            \item fdAmplitude - signal amplitude (FD)
+            \item fdTdcValues
+            \item fdTdcTimes - time
+        \end{itemize}
+    \item PrimaryVertex
+        \begin{itemize}
+            \item vtxX - x position of the reconstructed vertex 
+            \item vtxY - y position of the reconstructed vertex
+            \item vtxZ - z position of the reconstructed vertex
+            \item vtxChi2 - $\chi^{2}$ 
+            \item vtxNdf - NDF
+        \end{itemize}
+    \item BmnGlobalTrack
+        \begin{itemize}
+            \item trMom (Pt,Eta,Phi)
+            \item trNhits - the number of fit points in to accurate track momentum reconstruction
+            \item trNdf - NDF
+            \item trChi2 - $\chi^{2}$
+            \item trP - momentum
+            \item trChi2vtx (BmnGlobalTrack.fChi2InVertex)
+            \item trLength (BmnGlobalTrack.fLength) - track length
+            \item trCharge - track charge
+            \item trDca ( from BmnGlobalTrack and PrimaryVertex) - the distance of closest approach         
+            \item trTof400hit ("BmnGlobalTrack.fTof1Hit") - number of fit points
+            \item trBetaTof400 ("BmnGlobalTrack.fBeta400") - $\beta$ from TOF-400
+            \item trTof701hit ("BmnGlobalTrack.fTof2Hit") - number of fit points
+            \item trBetaTof701 ("BmnGlobalTrack.fBeta701") - $\beta$ from TOF-700
+            \item trM2Tof400 (from trMom and trBetaTof400) - $m^2$ from TOF-400
+            \item trM2Tof700 (from trMom and trBetaTof700) - $m^2$ from TOF-700
+        \end{itemize}
+    \item gemDigits - the number of GEM digits
+    \item stsDigits (implies FSD digit) - the number of FSD digits
+    \item trParamFirst - vector containing information about the global track: $x,y,z, T_x=p_x/p_z, T_y=p_y/p_z, Qp$.
+    \item trParamLast - vector containing information about the global track: $x,y,z, T_x=p_x/p_z, T_y=p_y/p_z, Qp$.
+    \item from BmnGlobalTrack and StsVector
+        \begin{itemize}
+            \item stsTrackCovMatrix - covariance matrix for tracks
+            \item stsTrackMagField - magnetic field vector
+            \item stsTrackParameters - vector containing information about the global track: $x,y,z, T_x=p_x/p_z, T_y=p_y/p_z, Qp$.
+            \item globalTrackParameters - duplicates trParamFirst
+            \item globalTrackCovMatrix - covariance matrix for tracks
+            \item stsTrackMomentum - momentum 
+            \item stsTrackChi2Ndf - $\chi^{2}/NDF$
+            \item stsTrackNdf - NDF
+            \item stsTrackNhits - the number of fit points in to accurate track momentum reconstruction
+        \end{itemize}
+    \item TOF-700
+        \begin{itemize}
+            \item tof700Digits - the number of TOF-700 digits
+            \item tof700Plane - plane number
+            \item tof700Strip - strip number
+            \item tof700hitPos - x,y,z hit pozition
+            \item tof700hitT - time of flight
+            \item tof700hitL - track length
+            \item tof700hitResX - distance from hit to global track on x axis
+            \item tof700hitResY - distance from hit to global track on y axis
+            \item tof700hitRefIndex - global track index of this hit
+            \item tof700hitResCalc - distance from hit to global track extrapolated by straight line 
+        \end{itemize}
+    \item TOF-400
+        \begin{itemize}
+            \item tof400Digits - the number of TOF-400 digits
+            \item tof400Plane - plane number
+            \item tof400Strip - strip number
+            \item tof400hitPos - x,y,z hit pozition
+            \item tof400hitT - time of flight
+            \item tof400hitL - track length
+            \item tof400hitResX - distance from hit to global track on x axis
+            \item tof400hitResY - distance from hit to global track on y axis
+            \item tof400hitRefIndex - global track index of this hit
+            \item tof400hitResCalc - distance from hit to global track extrapolated by straight line 
+        \end{itemize}
+    \item scwallModPos - x and y position of cells (ScWall)
+    \item scwallModId - cells numbers in ScWall
+    \item scwallModQ - cells charges (ScWall)
+    \item hodoModPos - x and y position of strips (FQH)
+    \item hodoModId - strips number (FQH)
+    \item hodoModQ - strips charge (FQH)
+    \item fhcalModPos - x and y position of module (FHCal)
+    \item fhcalModId - module number (FHCal)
+    \item fhcalModE - module energy (FHCal)
+    \item fhcalSecE - section energy (FHCal)
+
+\end{itemize}

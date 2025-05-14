@@ -1,0 +1,131 @@
+\section{Framework}
+
+    This section provides instructions for using the analysis framework. The framework includes the following macros:
+    \begin{itemize}
+        \item \url{../convert_macro/convertBmn_run8.C} and \url{../convert_macro/run8_convert.sh}: These files are conversion macros used to convert files from the .dst format to a ROOT tree (.tree.root).
+        \item \url{../QA_macro/run8_qa_new.C}:This is the main macro for the QA (Quality Assurance) stage. It defines the variables for analysis and sets up the corresponding histograms. \url{../QA_macro/run8.sh}: This script is used to run the  \url{../run8_qa_new.C} macro on the NICA cluster.
+        \item \url{../QA_macro/GoldRuns_script.C}: This macro is used for drawing figures and run-by-run QA analysis.
+        \item \url{../QA_macro/Get_VtxXYZ_corrRunId.C}: This macro is used for run-by-run correction of the x, y and z positions of the reconstructed vertex.
+        \item \url{../QA_macro/Get_GraphiCuts_cuts.C}: This macro defines a graphical cut to reduce the impact of pileup events based on the number of FSD and GEM digits and multiplicity.
+        \item \url{../QA_macro/Get_BC1_FD_cuts.C}: This macro defines a graphical cut to reduce the impact of pileup events based on signal data from the BC1 and FD detectors.
+        \item \url{../QA_macro/refMult_corr.C}: This macro is used for run-by-run correction of the multiplicity of charged particles.
+    \end{itemize}
+    Detailed instructions will be provided for each macro below.
+
+\subsection{convertBmn\_run8.C macro}\label{convert}
+
+    \url{convert_macro/convertBmn_run8.C} - This macro converts files from the .dst and .digi formats into a single simple format: a ROOT tree. 
+    The input files are .dst and .digi files from EOS, as well as .hitInfo.root files. The latter contain the results of the pileup event analysis conducted by Oleg Golosov.
+    To start on a cluster, use the \url{convert_macro/run8_convert.sh} script. 
+    Example of running a script: sbatch \url{run8_convert.sh} \url{path_to_lists/name_list.list} \url{out_dir}, 
+    where one \url{name_list.list} contains the names of 999 files. From now on we will work only with the our .tree.root format using the ROOT's RDataFrame.
+    Example of running a macro for 1 file:
+    
+    root -l -q -b convertBmn\_run8.C'("iFile\_dst","iFile\_digi","iFile\_hitInfo","oFile")', 
+    where iFile\_dst, iFile\_digi, iFile\_hitInfo - full path to file format dst, digi and hitInfo respectively.  
+
+\subsection{run8\_qa\_new.C macro}\label{qaMacro}
+
+    \url{../QA_macro/run8_qa_new.C} - This macro is used to read the .tree format and create histograms. Additionally, you can add your own variables and their corresponding histograms. \url{../QA_macro/run8.sh}: This script is used to run the  \url{../run8_qa_new.C} macro on the NICA cluster.
+    The input parameters:
+    \begin{itemize}
+        \item str\_in\_list - list of .tree.root files
+        \item str\_in\_list\_plp - list of files containing pileup corrections.
+        \item out\_file\_name - output file name
+        \item in\_fit\_file - this file containing corrections for the vertex and multiplicity. This file is specified during the second run of the \url{../QA_macro/run8_qa_new.C}. The correction file is obtained after running the \url{refMult_corr.C} and \url{Get_VtxXYZ_corrRunId.C} macros.
+    \end{itemize}
+    The output is a file containing a set of histograms. Example of running a macro for 1 list with files:
+
+    root -l -q -b run8\_qa\_new.C'("iList","","oFile","iCorrFile")', where iList - input list with tree.root files, oFile - output file, iCorrFile - file with corrections of vertex and multiplicity , indicate at the second launch.
+
+
+\subsection{GoldRuns\_script.C macro}\label{BadRun}
+    
+    \url{../QA_macro/GoldRuns_script.C}: This macro is used for drawing figures and run-by-run QA analysis.
+    The input parameters:
+    \begin{itemize}
+        \item \_inFileName - input file name
+        \item \_outFileName - output file name
+    \end{itemize}
+    After the macro runs, a set of specified plots and a list of bad runs will be generated.
+    Example of running a macro:
+
+    root -l -q -b GoldRuns\_script.C
+
+\subsection{Get\_VtxXYZ\_corrRunId.C macro}\label{corrVtx}
+
+    \url{../QA_macro/Get_VtxXYZ_corrRunId.C}: This macro is used for run-by-run correction of the x, y and z positions of the reconstructed vertex.
+    The input parameters:
+    \begin{itemize}
+        \item \_file\_inFile - input file name
+        \item \_file\_outFile - output file name
+    \end{itemize}
+    The result of running the macro will be a file containing 2D histograms. 
+    The x-axis represents the run number, and the y-axis represents the value by which the reconstructed vertex needs to be corrected.
+    Example of running a macro:
+    
+    root -l -q -b Get\_VtxXYZ\_corrRunId.C
+
+
+\subsection{Get\_GraphiCuts\_cuts.C macro}\label{GraphCut1}
+
+    \url{../QA_macro/Get_GraphiCuts_cuts.C}: This macro defines a graphical cut to reduce the impact of pileup events based on the number of FSD and GEM digits and multiplicity.
+    \begin{itemize}
+        \item \_file\_inFile - input file name
+        \item \_file\_outFile - output file name
+    \end{itemize}
+    After the macro runs, we obtain the parameters for a graphical cut that reduces the contribution of pileup events. The result of this macro needs to be manually recorded in \url{../QA_macro/run8_qa_new.C} in functions $stsNdigitsMultCut$
+    Example of running a macro:
+    
+    root -l -q -b Get\_GraphiCuts\_cuts.C
+
+
+
+\subsection{Get\_BC1\_FD\_cuts.C macro}\label{GraphCut2}
+
+    \url{../QA_macro/Get_BC1_FD_cuts.C} - macro defines a graphical cut run-by-run to reduce the impact of pileup events based on signal data from the BC1 and FD detectors.
+    \begin{itemize}
+        \item \_file\_inFile - input file name
+        \item \_file\_outFile - output file name
+    \end{itemize}
+    After the macro runs, graphs for run-by-run corrections of signals from the BC1 and FD detectors will be written to the output file. 
+    These corrections are used when macro \url{../QA_macro/run8_qa_new.C} is run again.
+    Example of running a macro:
+    
+    root -l -q -b Get\_BC1\_FD\_cuts.C
+
+
+
+\subsection{refMult\_corr.C macro}\label{CorrRefMult}
+
+   \url{../QA_macro/refMult_corr.C}: This macro is used for run-by-run correction of the multiplicity of charged particles.
+    \begin{itemize}
+        \item \_file\_inFile - input file name
+        \item \_file\_outFile - output file name
+        \item Specify the region of stable runs to which the multiplicity from other runs will be fitted.
+    \end{itemize}
+    After the macro runs, graphs for run-by-run corrections for multiplicity will be written to the output file.
+    These corrections are used when macro \url{../QA_macro/run8_qa_new.C} is run again.
+
+    Example of running a macro:
+    
+    root -l -q -b refMult\_corr.C
+
+    The procedure for multiplicity corrections consists of the following steps:
+    \begin{itemize}
+        \item We used events from Physical runs and CCT2 trigger.
+        \item remove "bad" runs
+        \item remove events with pileup
+        \item apply event selection criteria: at least 2 tracks in vertex reconstruction
+        \item Extract the high-end point of refMult distribution in each RunId via fitting the refMult tail by the function:
+            \begin{equation}\label{ErrFunct}
+                f(refMult)=A*Erf(-\sigma(refMult-H))+A
+            \end{equation}
+        \item refMult can then be corrected by:
+            \begin{equation}\label{ErrFunct}
+                refMult_{corr} = refMult * H_{ref} / H(RunId),
+            \end{equation}
+        where $H_{ref}$ - high-end point of refMult distribution from stable runs. 
+
+
+    \end{itemize}

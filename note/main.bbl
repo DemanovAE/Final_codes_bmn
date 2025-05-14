@@ -1,0 +1,63 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{VoloshinZhang}{article}{}
+    \name{author}{2}{}{%
+      {{hash=VS}{%
+         family={Voloshin},
+         familyi={V\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {english}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{VSZY1}
+    \strng{fullhash}{VSZY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s002880050141
+    \endverb
+    \field{number}{4}
+    \field{pages}{665–671}
+    \field{title}{Flow study in relativistic nuclear collisions by Fourier
+  expansion of azimuthal particle distributions}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s002880050141
+    \endverb
+    \field{volume}{70}
+    \field{langid}{english}
+    \field{journaltitle}{Zeitschrift for Physik C Particles and Fields}
+    \field{month}{05}
+    \field{year}{1996}
+  \endentry
+\enddatalist
+\endinput
