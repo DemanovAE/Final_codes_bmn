@@ -125,7 +125,7 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"tr_dca_y",		{"tr_dca_y",		"tr_dca_y",					";DCA_{y} (cm)",			800,		-50,		50}},
 	{"tr_dca_z",		{"tr_dca_z",		"tr_dca_z",					";DCA_{z} (cm)",			800,		-50,		50}},
 	{"tr_dca_r",		{"tr_dca_r",		"tr_dca_r",					";DCA_{R} (cm)",			800,		0,			40}},
-	{"tr_dca_z_mpd",	{"tr_dca_z_mpd",	"tr_dca_rMpd",					";DCA_{R} (cm)",			800,		0,			40}},
+	{"tr_dca_z_mpd",	{"tr_dca_z_mpd",	"tr_dca_rMpd",					";DCA_{R} (cm)",		800,		-50,		50}},
 	{"tr_dca_x_mpd",	{"tr_dca_x_mpd",	"tr_dca_xMpd",				";DCA_{x} (cm)",			800,		-50,		50}},
 	{"tr_dca_y_mpd",	{"tr_dca_y_mpd",	"tr_dca_yMpd",				";DCA_{y} (cm)",			800,		-50,		50}},
 	{"tr_dca_r_mpd",	{"tr_dca_r_mpd",	"tr_dca_zMpd",				";DCA_{R} (cm)",			800,		0,			40}},
