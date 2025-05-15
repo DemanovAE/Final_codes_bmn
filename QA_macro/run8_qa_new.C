@@ -74,6 +74,7 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"hodo_q",			{"hodo_q",			"hodoSumQ",					";Hodo Q^{2}", 				1500,		0,			15000}},
 	{"scwall_q",		{"scwall_q",		"scwallSumQ",				";ScWall Q_{tot}", 			1000,		0,			1000}},
 	{"fhcal&hodo_e",	{"fhcal&hodo_e",	"fhcalhodoSumE",			";E_{tot} (MeV)", 			1500,		0,			15000}},
+	//PrimaryVertex
 	{"vtx_x",			{"vtx_x",			"vtxX",						";Vtx_{X} (cm)", 			1000,		-5.,		5.}},
 	{"vtx_y",			{"vtx_y",			"vtxY",						";Vtx_{Y} (cm)", 			1000,		-5.,		5.}},
 	{"vtx_z",			{"vtx_z",			"vtxZ",						";Vtx_{Z} (mm)", 			2000,		-4.,		4.}},
@@ -86,6 +87,16 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"vtx_chi2",		{"vtx_chi2",    	"vtxChi2",					";Vtx #chi^{2}", 			1000,		0,			4000}},
 	{"vtx_ndf",			{"vtx_ndf",    		"vtxNdf",					";Vtx ndf", 				1000,		0,			2000}},
 	{"vtx_chi2_ndf",	{"vtx_chi2_ndf",    "vtx_chi2_ndf",				";Vtx #chi^{2}/NDF", 		400,		0,			40}},
+	//MpdVertex
+	{"vtx_x_mpd",		{"vtx_x_mpd",		"vtxXMpd",					";Vtx_{X} (cm)", 			1000,		-5.,		5.}},
+	{"vtx_y_mpd",		{"vtx_y_mpd",		"vtxYMpd",					";Vtx_{Y} (cm)", 			1000,		-5.,		5.}},
+	{"vtx_z_mpd",		{"vtx_z_mpd",		"vtxZMpd",					";Vtx_{Z} (mm)", 			2000,		-4.,		4.}},
+	{"vtx_r_mpd",		{"vtx_r_mpd",		"vtxRMpd",					";Vtx_{R} (cm)", 			1000,		-5.,		5.}},
+	{"vtx_n_tracks_mpd",{"vtx_n_tracks_mpd","vtxNtracksMpd",			";N tracks for Vtx", 		500,		0,			500}},
+	{"vtx_chi2_mpd",	{"vtx_chi2_mpd", 	"vtxChi2Mpd",				";Vtx #chi^{2}", 			1000,		0,			4000}},
+	{"vtx_ndf_mpd",		{"vtx_ndf_mpd", 	"vtxNdfMpd",				";Vtx ndf", 				1000,		0,			2000}},
+	{"vtx_chi2_ndf_mpd",{"vtx_chi2_ndf_mpd","vtx_chi2_ndfMpd",			";Vtx #chi^{2}/NDF", 		400,		0,			40}},
+	//
 	{"tof400_mult",		{"tof400_mult", 	"Tof400_multiplicity",		";TOF-400 multiplicity",	1000,		0,			1000}},
 	{"tof700_mult",		{"tof700_mult", 	"Tof700_multiplicity",		";TOF-700 multiplicity",	1000,		0,			1000}},
 	{"tof400Matched",	{"tof400Matched", 	"Tof400Matched",			";TOF-400 Matched",			100,		0,			100}},
@@ -195,6 +206,10 @@ const std::vector<std::vector< std::string >> QA_MultDemenPlot{
 	{"cent12_8120_8170", 	"RefMult1"},
 	{"cent12_7400_7450", 	"RefMult2"},
 
+	{"vtx_x",		"vtx_x_mpd"},
+	{"vtx_y",		"vtx_y_mpd"},
+	{"vtx_z",		"vtx_z_mpd"},
+
 	{"vtx_x",		"nTracks"},
 	{"vtx_y",		"nTracks"},
 	{"vtx_z",		"nTracks"},
@@ -207,6 +222,8 @@ const std::vector<std::vector< std::string >> QA_MultDemenPlot{
 	{"vtx_x_corr",	"RefMult2"},
 	{"vtx_y_corr",	"RefMult2"},
 	{"vtx_z_corr",	"RefMult2"},
+
+	{"vtx_x_mpd",	"vtx_y_mpd"},
 	
 	{"vtx_x",		"vtx_y"},
 	{"vtx_x_corr",	"vtx_y_corr"},
@@ -247,12 +264,6 @@ const std::vector<std::vector< std::string >> QA_MultDemenPlot{
 	{"tr_pq_good",	"tr_m2_tof400_good"},
 	{"tr_pq_good",	"tr_m2_tof700_good"},
 	
-	{"RunId", 		"vtx_z"},
-	{"RunId", 		"vtx_z_corr"},
-	{"RunId", 		"vtx_x"},
-	{"RunId", 		"vtx_x_corr"},
-	{"RunId", 		"vtx_y"},
-	{"RunId", 		"vtx_y_corr"},
 	{"RunId",		"nTracks"},
 	{"RunId",   	"RefMult1"},
 	{"RunId",   	"RefMult2"},
@@ -300,12 +311,21 @@ const std::vector<std::vector< std::string >> QA_MultDemenPlot{
 	{"RunId",		"vtx_x"},
 	{"RunId",		"vtx_y"},
 	{"RunId",		"vtx_z"},
-	{"RunId",		"vtx_r"},
-	{"RunId",		"vtx_r_corr"},
+	{"RunId",		"vtx_r"},	
+	{"RunId", 		"vtx_z_corr"},
+	{"RunId", 		"vtx_x_corr"},
+	{"RunId", 		"vtx_y_corr"},
 	{"RunId",		"vtx_n_tracks"},
 	{"RunId",		"vtx_chi2"},
 	{"RunId",		"vtx_ndf"},
 	{"RunId",		"vtx_chi2_ndf"},
+	{"RunId", 		"vtx_z_mpd"},
+	{"RunId", 		"vtx_x_mpd"},
+	{"RunId", 		"vtx_y_mpd"},
+	{"RunId",		"vtx_n_tracks_mpd"},
+	{"RunId",		"vtx_chi2_mpd"},
+	{"RunId",		"vtx_ndf_mpd"},
+	{"RunId",		"vtx_chi2_ndf_mpd"},
 	{"RunId",		"tof400_mult"},
 	{"RunId",		"tof700_mult"},
 	{"RunId",		"tof400Matched"},
@@ -1000,7 +1020,9 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Define( "ref2_multiplicity", ref_mult_generator( g1_FitRunIdFactor_2 ), {"track_multiplicity", "runId"} )
 		.Define( "sts_track_multiplicity", "return stsTrackMomentum.size();" )
 		.Define( "vtx_chi2_ndf", "return vtxChi2/vtxNdf;" )
+		.Define( "vtx_chi2_ndf_mpd", "return vtxChi2Mpd/vtxNdfMpd;" )
 		//Vertex
+		.Define( "vtxRMpd",	  "return sqrt(vtxXMpd*vtxXMpd + vtxYMpd*vtxYMpd);" )
 		.Define( "vtxR", 	  "return sqrt(vtxX*vtxX + vtxY*vtxY);" )
 		.Define( "vtxXcorr", vtx_correction_generator(g1_FitVtxX), {"vtxX","runId"})
         .Define( "vtxYcorr", vtx_correction_generator(g1_FitVtxY), {"vtxY","runId"})
