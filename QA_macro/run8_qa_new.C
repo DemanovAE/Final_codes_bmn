@@ -1020,7 +1020,7 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Define( "ref2_multiplicity", ref_mult_generator( g1_FitRunIdFactor_2 ), {"track_multiplicity", "runId"} )
 		.Define( "sts_track_multiplicity", "return stsTrackMomentum.size();" )
 		.Define( "vtx_chi2_ndf", "return vtxChi2/vtxNdf;" )
-		.Define( "vtx_chi2_ndf_mpd", "return vtxChi2Mpd/vtxNdfMpd;" )
+		.Define( "vtx_chi2_ndfMpd", "return vtxChi2Mpd/vtxNdfMpd;" )
 		//Vertex
 		.Define( "vtxRMpd",	  "return sqrt(vtxXMpd*vtxXMpd + vtxYMpd*vtxYMpd);" )
 		.Define( "vtxR", 	  "return sqrt(vtxX*vtxX + vtxY*vtxY);" )
