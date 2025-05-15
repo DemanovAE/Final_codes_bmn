@@ -77,11 +77,11 @@ const std::map< std::string, HistoParameter > QA_variable{
 	//PrimaryVertex
 	{"vtx_x",			{"vtx_x",			"vtxX",						";Vtx_{X} (cm)", 			1000,		-5.,		5.}},
 	{"vtx_y",			{"vtx_y",			"vtxY",						";Vtx_{Y} (cm)", 			1000,		-5.,		5.}},
-	{"vtx_z",			{"vtx_z",			"vtxZ",						";Vtx_{Z} (mm)", 			2000,		-4.,		4.}},
+	{"vtx_z",			{"vtx_z",			"vtxZ",						";Vtx_{Z} (cm)", 			2000,		-4.,		4.}},
 	{"vtx_r",			{"vtx_r",			"vtxR",						";Vtx_{R} (cm)", 			1000,		-5.,		5.}},
 	{"vtx_x_corr",		{"vtx_x_corr",		"vtxXcorr",					";Vtx_{X} (cm)",			1000,		-5.,		5.}},
 	{"vtx_y_corr",		{"vtx_y_corr",		"vtxYcorr",					";Vtx_{Y} (cm)",			1000,		-5.,		5.}},
-	{"vtx_z_corr",		{"vtx_z_corr",		"vtxZcorr",					";Vtx_{Z} (mm)",			2000,		-4.,		4.}},
+	{"vtx_z_corr",		{"vtx_z_corr",		"vtxZcorr",					";Vtx_{Z} (cm)",			2000,		-4.,		4.}},
 	{"vtx_r_corr",		{"vtx_r_corr",		"vtxRcorr",					";Vtx_{R} (cm)",			1000,		0,			10.}},
 	{"vtx_n_tracks",	{"vtx_n_tracks",    "vtxNtracks",				";N tracks for Vtx", 		500,		0,			500}},
 	{"vtx_chi2",		{"vtx_chi2",    	"vtxChi2",					";Vtx #chi^{2}", 			1000,		0,			4000}},
@@ -90,7 +90,7 @@ const std::map< std::string, HistoParameter > QA_variable{
 	//MpdVertex
 	{"vtx_x_mpd",		{"vtx_x_mpd",		"vtxXMpd",					";Vtx_{X} (cm)", 			1000,		-5.,		5.}},
 	{"vtx_y_mpd",		{"vtx_y_mpd",		"vtxYMpd",					";Vtx_{Y} (cm)", 			1000,		-5.,		5.}},
-	{"vtx_z_mpd",		{"vtx_z_mpd",		"vtxZMpd",					";Vtx_{Z} (mm)", 			2000,		-4.,		4.}},
+	{"vtx_z_mpd",		{"vtx_z_mpd",		"vtxZMpd",					";Vtx_{Z} (cm)", 			2000,		-4.,		4.}},
 	{"vtx_r_mpd",		{"vtx_r_mpd",		"vtxRMpd",					";Vtx_{R} (cm)", 			1000,		-5.,		5.}},
 	{"vtx_n_tracks_mpd",{"vtx_n_tracks_mpd","vtxNtracksMpd",			";N tracks for Vtx", 		500,		0,			500}},
 	{"vtx_chi2_mpd",	{"vtx_chi2_mpd", 	"vtxChi2Mpd",				";Vtx #chi^{2}", 			1000,		0,			4000}},
@@ -125,9 +125,10 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"tr_dca_y",		{"tr_dca_y",		"tr_dca_y",					";DCA_{y} (cm)",			800,		-50,		50}},
 	{"tr_dca_z",		{"tr_dca_z",		"tr_dca_z",					";DCA_{z} (cm)",			800,		-50,		50}},
 	{"tr_dca_r",		{"tr_dca_r",		"tr_dca_r",					";DCA_{R} (cm)",			800,		0,			40}},
-	{"tr_dca2_x",		{"tr_dca2_x",		"trDcaX",					";DCA_{x} (cm)",			800,		-50,		50}},
-	{"tr_dca2_y",		{"tr_dca2_y",		"trDcaY",					";DCA_{y} (cm)",			800,		-50,		50}},
-	{"tr_dca2_r",		{"tr_dca2_r",		"trDcaR",					";DCA_{R} (cm)",			800,		0,			40}},
+	{"tr_dca_z_mpd",	{"tr_dca_z_mpd",	"tr_dca_rMpd",					";DCA_{R} (cm)",			800,		0,			40}},
+	{"tr_dca_x_mpd",	{"tr_dca_x_mpd",	"tr_dca_xMpd",				";DCA_{x} (cm)",			800,		-50,		50}},
+	{"tr_dca_y_mpd",	{"tr_dca_y_mpd",	"tr_dca_yMpd",				";DCA_{y} (cm)",			800,		-50,		50}},
+	{"tr_dca_r_mpd",	{"tr_dca_r_mpd",	"tr_dca_zMpd",				";DCA_{R} (cm)",			800,		0,			40}},
 	// mass2, beta, pid
 	{"tr_pq",			{"tr_pq", 			"pq",						";p/q (GeV/c)",				1000, 		-10., 		10.}},
 	{"tr_pq_good",		{"tr_pq_good",		"pq_good",					";p/q (GeV/c)",				1000, 		-10., 		10.}},	
@@ -163,8 +164,8 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"fhcal_e",			{"fhcal_e", 		"fhcalSumE",				";E_{tot} (MeV)",			1500,		0,			15000}},
 	{"fhcal_pos_x",		{"fhcal_pos_x", 	"fhcal_x",					";x (cm)",					100,		-100,		100}},
 	{"fhcal_pos_y",		{"fhcal_pos_y", 	"fhcal_y",					";y (cm)",					100,		-100,		100}},
-	{"tr_fhcal_pos_x",	{"tr_fhcal_pos_x", 	"trFhcalX",					";x (cm)",					100,		-100,		100}},
-	{"tr_fhcal_pos_y",	{"tr_fhcal_pos_y", 	"trFhcalY",					";y (cm)",					100,		-100,		100}},
+	{"tr_fhcal_pos_x",	{"tr_fhcal_pos_x", 	"trFhcalX",					";x (cm)",					200,		-200,		200}},
+	{"tr_fhcal_pos_y",	{"tr_fhcal_pos_y", 	"trFhcalY",					";y (cm)",					200,		-200,		200}},
 	// beam pipe
 	{"beam_hitMult_st0",{"beam_hitMult_st0","beamHitX_St0_mult",		";count",					40,			 0,			40}},
 	{"beam_hitMult_st1",{"beam_hitMult_st1","beamHitX_St1_mult",		";count",					40,			 0,			40}},
@@ -1094,6 +1095,10 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Define( "tr_dca_y", 	" ROOT::RVecF vec_par; for( auto par : globalTrackParameters ){ vec_par.push_back( par.at(1) - vtxY ); } return vec_par; " )
 		.Define( "tr_dca_z",	" ROOT::RVecF vec_par; for( auto par : globalTrackParameters ){ vec_par.push_back( par.at(2) - vtxZ ); } return vec_par; " )
         .Define( "tr_dca_r", dca_function, {"tr_dca_x", "tr_dca_y"} )
+        .Define( "tr_dca_xMpd", " ROOT::RVecF vec_par; for( auto par : globalTrackParameters ){ vec_par.push_back( par.at(0) - vtxXMpd ); } return vec_par; " )
+		.Define( "tr_dca_yMpd", " ROOT::RVecF vec_par; for( auto par : globalTrackParameters ){ vec_par.push_back( par.at(1) - vtxYMpd ); } return vec_par; " )
+		.Define( "tr_dca_zMpd",	" ROOT::RVecF vec_par; for( auto par : globalTrackParameters ){ vec_par.push_back( par.at(2) - vtxZMpd ); } return vec_par; " )
+        .Define( "tr_dca_rMpd", dca_function, {"tr_dca_xMpd", "tr_dca_yMpd"} )
         //TOF
 		.Define( "Tof400Matched", "int Ntr{}; for( int i=0; i<trMom.size(); i++ ){ if(trBetaTof400.at(i) > -990.)Ntr++; } return Ntr; " )
 		.Define( "Tof700Matched", "int Ntr{}; for( int i=0; i<trMom.size(); i++ ){ if(trBetaTof700.at(i) > -990.)Ntr++; } return Ntr; " )		
@@ -1114,7 +1119,7 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Define( "trIsProtonTof400", 	is_particle_tof_generator(-3, 3), {"trNsigma2212M2Tof400"} )
 		.Define( "trIsProtonTof700", 	is_particle_tof_generator(-3, 3), {"trNsigma2212M2Tof700"} )
 		.Define( "trIsProton", 			IsParticle, {"trIsProtonTof400", "trIsProtonTof700"} )
-		.Define( "trIsGoodProton", 		IsGoodParticle, {"trIsProton", "trDcaR", "stsTrackNhits", "stsTrackChi2Ndf", "trFhcalX", "trFhcalY"} )
+		.Define( "trIsGoodProton", 		IsGoodParticle, {"trIsProton", "tr_dca_r", "stsTrackNhits", "stsTrackChi2Ndf", "trFhcalX", "trFhcalY"} )
 		.Define( "trIsDeuteronTof400",	is_particle_tof_generator(-3, 3), {"trNsigma1000010020M2Tof400"} )
 		.Define( "trIsDeuteronTof700",	is_particle_tof_generator(-1, 3), {"trNsigma1000010020M2Tof700"} )
 		.Define( "trIsDeuteron", 		IsParticle, {"trIsDeuteronTof400", "trIsDeuteronTof700"} )
@@ -1180,7 +1185,9 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Filter(PhisRunCut,{"runId"} )
 		.Filter(ARCut, {"triggerMapAR"}) //triggerMapAR
 		.Filter("vtx_chi2_ndf > std::numeric_limits<float>::min()")
+		.Filter("vtx_chi2_ndfMpd > std::numeric_limits<float>::min()")
 		.Filter("vtxNtracks >= 2")
+		.Filter("vtxNtracksMpd >= 2")
 		;
 
 	AddStandartHisto(dd_def,"nVtxTr_",file_out);
@@ -1192,7 +1199,9 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Filter(PhisRunCut,{"runId"} )
 		.Filter(ARCut, {"triggerMapAR"}) //triggerMapAR
 		.Filter("vtx_chi2_ndf > std::numeric_limits<float>::min()")
+		.Filter("vtx_chi2_ndfMpd > std::numeric_limits<float>::min()")
 		.Filter("vtxNtracks >= 2")
+		.Filter("vtxNtracksMpd >= 2")
 		.Filter("noPileup==1")
 		;
 	AddStandartHisto(dd_plp,"nVtxTr_plp_",file_out);
