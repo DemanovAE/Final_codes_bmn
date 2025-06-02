@@ -26,14 +26,14 @@ struct HistoParameter
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const std::map< std::string, HistoParameter > QA_variable{
 	{"RunId",			{"RunId",			"runId",					";Run ID", 				RunIdBins,	RunIdMin,	RunIdMax}},
-	
+	/*
 	{"bc2asTime",		{"bc2asTime",		"bc2asTimes",				";t (ns)",					600,		0,			3000}},
 	{"bc2asAmp",		{"bc2asAmp",		"bc2asAmplitude",			";bc2 S Amplitude",			800,		0,			4e4}},
 	{"bc2msTime",		{"bc2msTime",		"bc2msTimes",				";t (ns)",					600,		0,			3000}},
 	{"bc2msAmp",		{"bc2msAmp",		"bc2msAmplitude",			";bc1 S Amplitude",			800,		0,			4e4}},
 	{"bc2asInt",		{"bc2asInt",		"bc2asIntegral",			";bc2asT Integral",			800,		0,			4e5}},
 	{"bc2msInt",		{"bc2msInt",		"bc2msIntegral",			";bc2msT Integral",			800,		0,			4e5}},
-	
+	*/
 
 	{"bc1sTime",		{"bc1sTime",		"bc1sTdcTimes",				";t (ns)",					600,		0,			3000}},
 	{"bc1sAmp",			{"bc1sAmp",			"bc1sAmplitude",			";bc1 S Amplitude",			800,		0,			4e4}},
@@ -88,10 +88,10 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"vtx_ndf",			{"vtx_ndf",    		"vtxNdf",					";Vtx ndf", 				1000,		0,			2000}},
 	{"vtx_chi2_ndf",	{"vtx_chi2_ndf",    "vtx_chi2_ndf",				";Vtx #chi^{2}/NDF", 		400,		0,			40}},
 	//MpdVertex
-	{"vtx_x_mpd",		{"vtx_x_mpd",		"vtxXMpd",					";Vtx_{X} (cm)", 			1000,		-5.,		5.}},
-	{"vtx_y_mpd",		{"vtx_y_mpd",		"vtxYMpd",					";Vtx_{Y} (cm)", 			1000,		-5.,		5.}},
-	{"vtx_z_mpd",		{"vtx_z_mpd",		"vtxZMpd",					";Vtx_{Z} (cm)", 			2000,		-4.,		4.}},
-	{"vtx_r_mpd",		{"vtx_r_mpd",		"vtxRMpd",					";Vtx_{R} (cm)", 			1000,		-5.,		5.}},
+	{"vtx_x_mpd",		{"vtx_x_mpd",		"vtxXMpd",					";Vtx_{X} (cm), MpdVertex",			1000,		-5.,		5.}},
+	{"vtx_y_mpd",		{"vtx_y_mpd",		"vtxYMpd",					";Vtx_{Y} (cm), MpdVertex",			1000,		-5.,		5.}},
+	{"vtx_z_mpd",		{"vtx_z_mpd",		"vtxZMpd",					";Vtx_{Z} (cm), MpdVertex",			2000,		-4.,		4.}},
+	{"vtx_r_mpd",		{"vtx_r_mpd",		"vtxRMpd",					";Vtx_{R} (cm), MpdVertex",			1000,		-5.,		5.}},
 	{"vtx_n_tracks_mpd",{"vtx_n_tracks_mpd","vtxNtracksMpd",			";N tracks for Vtx", 		500,		0,			500}},
 	{"vtx_chi2_mpd",	{"vtx_chi2_mpd", 	"vtxChi2Mpd",				";Vtx #chi^{2}", 			1000,		0,			4000}},
 	{"vtx_ndf_mpd",		{"vtx_ndf_mpd", 	"vtxNdfMpd",				";Vtx ndf", 				1000,		0,			2000}},
@@ -125,7 +125,7 @@ const std::map< std::string, HistoParameter > QA_variable{
 	{"tr_dca_y",		{"tr_dca_y",		"tr_dca_y",					";DCA_{y} (cm)",			800,		-50,		50}},
 	{"tr_dca_z",		{"tr_dca_z",		"tr_dca_z",					";DCA_{z} (cm)",			800,		-50,		50}},
 	{"tr_dca_r",		{"tr_dca_r",		"tr_dca_r",					";DCA_{R} (cm)",			800,		0,			40}},
-	{"tr_dca_z_mpd",	{"tr_dca_z_mpd",	"tr_dca_rMpd",					";DCA_{R} (cm)",		800,		-50,		50}},
+	{"tr_dca_z_mpd",	{"tr_dca_z_mpd",	"tr_dca_rMpd",				";DCA_{R} (cm)",			800,		-50,		50}},
 	{"tr_dca_x_mpd",	{"tr_dca_x_mpd",	"tr_dca_xMpd",				";DCA_{x} (cm)",			800,		-50,		50}},
 	{"tr_dca_y_mpd",	{"tr_dca_y_mpd",	"tr_dca_yMpd",				";DCA_{y} (cm)",			800,		-50,		50}},
 	{"tr_dca_r_mpd",	{"tr_dca_r_mpd",	"tr_dca_zMpd",				";DCA_{R} (cm)",			800,		0,			40}},
@@ -211,6 +211,17 @@ const std::vector<std::vector< std::string >> QA_MultDemenPlot{
 	{"vtx_y",		"vtx_y_mpd"},
 	{"vtx_z",		"vtx_z_mpd"},
 
+	{"vtx_x_mpd",	"nTracks"},
+	{"vtx_y_mpd",	"nTracks"},
+	{"vtx_z_mpd",	"nTracks"},
+	
+	{"vtx_z",		"vtx_chi2_ndf"},
+	{"vtx_z_mpd",	"vtx_chi2_ndf_mpd"},
+
+	{"vtx_z",		"vtx_n_tracks"},
+	{"vtx_z_mpd",	"vtx_n_tracks_mpd"},
+
+
 	{"vtx_x",		"nTracks"},
 	{"vtx_y",		"nTracks"},
 	{"vtx_z",		"nTracks"},
@@ -269,12 +280,12 @@ const std::vector<std::vector< std::string >> QA_MultDemenPlot{
 	{"RunId",   	"RefMult1"},
 	{"RunId",   	"RefMult2"},
 
-	{"RunId",		"bc2asInt"},
-	{"RunId",		"bc2asTime"},
-	{"RunId",		"bc2asAmp"},
-	{"RunId",		"bc2msInt"},
-	{"RunId",		"bc2msTime"},
-	{"RunId",		"bc2msAmp"},
+	//{"RunId",		"bc2asInt"},
+	//{"RunId",		"bc2asTime"},
+	//{"RunId",		"bc2asAmp"},
+	//{"RunId",		"bc2msInt"},
+	//{"RunId",		"bc2msTime"},
+	//{"RunId",		"bc2msAmp"},
 
 	{"RunId",		"bc1sTime"},
 	{"RunId",		"bc1sInt"},
@@ -599,7 +610,7 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 	file_fit->cd();
 	TGraphErrors *f1_FitBC1 = (TGraphErrors*)file_fit->Get("gr_cut1_h2_RunId_bc1sInt_1");
 	TGraphErrors *f1_FitFD  = (TGraphErrors*)file_fit->Get("gr_cut1_h2_RunId_fdInt_1");
-	TGraphErrors *f1_FitMult= (TGraphErrors*)file_fit->Get("gr_cut4_h2_RunId_nTracks");
+	//TGraphErrors *f1_FitMult= (TGraphErrors*)file_fit->Get("gr_cut4_h2_RunId_nTracks");
 
 	auto g1_FitVtxX = file_fit->Get<TGraphErrors>("grNew_def_h2_RunId_vtx_x");
 	auto g1_FitVtxY = file_fit->Get<TGraphErrors>("grNew_def_h2_RunId_vtx_y");
@@ -607,12 +618,22 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 
 	auto g1_FitRunIdFactor_1 = file_fit->Get<TGraphErrors>("RunId_corr_factor_h2_RunId_nTracks_8120_8170");
 	auto g1_FitRunIdFactor_2 = file_fit->Get<TGraphErrors>("RunId_corr_factor_h2_RunId_nTracks_7400_7450");
-	
+
 	TFileCollection collection( "collection", "", str_in_list.c_str() );
 	auto* chain = new TChain( "t" );
 	chain->AddFileInfoList( collection.GetList() );	
 	ROOT::RDataFrame d( *chain );
 
+	///////// Warning part /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if(f1_FitBC1==nullptr) 	std::cout<<"Warning! No corrections found for BC1. These corrections will not be applied."<<std::cout;
+	if(f1_FitFD==nullptr) 	std::cout<<"Warning! No corrections found for FD. These corrections will not be applied."<<std::cout;
+	//if(f1_FitMult==nullptr) std::cout<<"Warning! No corrections found for Multiplicity. These corrections will not be applied."<<std::cout;
+	if(g1_FitVtxX==nullptr) std::cout<<"Warning! No corrections found for VtxX. These corrections will not be applied."<<std::cout;
+	if(g1_FitVtxY==nullptr) std::cout<<"Warning! No corrections found for VtxY. These corrections will not be applied."<<std::cout;
+	if(g1_FitVtxZ==nullptr) std::cout<<"Warning! No corrections found for VtxZ. These corrections will not be applied."<<std::cout;
+	if(g1_FitRunIdFactor_1==nullptr) std::cout<<"Warning! No corrections found for Multiplicity (ref: 120-8170). These corrections will not be applied."<<std::cout;
+	if(g1_FitRunIdFactor_2==nullptr) std::cout<<"Warning! No corrections found for Multiplicity(ref:7400-7450). These corrections will not be applied."<<std::cout;
+	///////// end Warning part /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const float PROTON_M = 0.93827208;
     const float PION_M = 0.13957061;
@@ -794,11 +815,15 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 
     // Vtx Z cirrections functions
     auto vtx_correction_generator = []( TGraphErrors* g1_calib ){
-	   return [g1_calib](double _vtx, UInt_t _runId){return _vtx - g1_calib->Eval( static_cast<double>(_runId) ); };
+	   return [g1_calib](double _vtx, UInt_t _runId){
+	   	return _vtx - (g1_calib!=nullptr) ? g1_calib->Eval( static_cast<double>(_runId) : 0. );
+	   };
 	};
 	
 	auto ref_mult_generator = []( TGraphErrors* g1_calib ){
-	   return [g1_calib](unsigned long _mult, UInt_t _runId){ return (_mult * g1_calib->Eval( static_cast<double>(_runId) )); };
+	   return [g1_calib](unsigned long _mult, UInt_t _runId){
+	   	return (_mult * (g1_calib!=nullptr) ? g1_calib->Eval( static_cast<double>(_runId) : 1. ));
+	   };
 	};
     
     //BD functions
@@ -1009,13 +1034,13 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		//event
 		.Filter("runId < 8312")
 		.Filter("runId > 7016")
-		
+		/*
 		.Redefine("k0cut", "k0closest.at(0)<-200 && k0closest.at(1)>200") 
     	.Redefine("kV0cut", "kV0closest.at(0)<-200 && kV0closest.at(1)>200") 
     	.Redefine("k1cut", "k1closest.at(0)<-1600 && k1closest.at(1)>600") 
     	.Redefine("kV1cut", "kV1closest.at(0)<-1800 && kV1closest.at(1)>600")
     	.Redefine("noPileup", "if(k1central && k0cut && kV0cut && k1cut && kV1cut) return 1; else if(k1central) return -1; else return 0;")
-		
+		*/
 		.Define( "track_multiplicity", "return trMom.size();" )
 		.Define( "ref1_multiplicity", ref_mult_generator( g1_FitRunIdFactor_1 ), {"track_multiplicity", "runId"} )
 		.Define( "ref2_multiplicity", ref_mult_generator( g1_FitRunIdFactor_2 ), {"track_multiplicity", "runId"} )
@@ -1045,8 +1070,8 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 		.Define( "Tof700_multiplicity", "return trBetaTof700.size()" )
 		//.Define( "Tof701_multiplicity", "return trBetaTof701.size()" )
 		// BC1S
-		.Define( "bc1sIntegralNorm",[f1_FitBC1](float _bc1, UInt_t _runId){ return _bc1 / f1_FitBC1->Eval((double)_runId);},{"bc1sIntegral","runId"} )
-		.Define( "fdIntegralNorm",	[f1_FitFD] (float _fd,  UInt_t _runId){ return _fd  / f1_FitFD ->Eval((double)_runId);},{"fdIntegral",	"runId"} )
+		.Define( "bc1sIntegralNorm",[f1_FitBC1](float _bc1, UInt_t _runId){ return _bc1 / (f1_FitBC1!=nullptr) ? f1_FitBC1->Eval((double)_runId) : 1.; },{"bc1sIntegral","runId"} )
+		.Define( "fdIntegralNorm",	[f1_FitFD] (float _fd,  UInt_t _runId){ return _fd  / (f1_FitFD!=nullptr)  ? f1_FitFD ->Eval((double)_runId) : 1.; },{"fdIntegral",	"runId"} )
 		// Triggers
 		.Define( "bc1sTdcHits", " return bc1sTdcTimes.size(); " )
 		.Define( "bc1tTdcHits", " return bc1tTdcTimes.size(); " )
@@ -1182,7 +1207,7 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 
 	// vertex cut
 	auto dd_def = dd
-		.Filter(PhisRunCut,{"runId"} )
+		//.Filter(PhisRunCut,{"runId"} )
 		.Filter(ARCut, {"triggerMapAR"}) //triggerMapAR
 		.Filter("vtx_chi2_ndf > std::numeric_limits<float>::min()")
 		.Filter("vtx_chi2_ndfMpd > std::numeric_limits<float>::min()")
@@ -1196,16 +1221,14 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 
 	// plp cut 
 	auto dd_plp = dd
-		.Filter(PhisRunCut,{"runId"} )
+		//.Filter(PhisRunCut,{"runId"} )
 		.Filter(ARCut, {"triggerMapAR"}) //triggerMapAR
 		.Filter("vtx_chi2_ndf > std::numeric_limits<float>::min()")
 		.Filter("vtx_chi2_ndfMpd > std::numeric_limits<float>::min()")
-		.Filter("vtxNtracks >= 2")
-		.Filter("vtxNtracksMpd >= 2")
-		.Filter("noPileup==1")
+		//.Filter("noPileup==1")
 		;
-	AddStandartHisto(dd_plp,"nVtxTr_plp_",file_out);
-  	AddHistoGraphCutvsRunId2(dd_plp,"nVtxTr_plp_",file_out,GetRunIdForJob(dd_plp));
+	AddStandartHisto(dd_plp,"nVtxTr2_",file_out);
+  	AddHistoGraphCutvsRunId2(dd_plp,"nVtxTr2_",file_out,GetRunIdForJob(dd_plp));
 
 
 
@@ -1261,7 +1284,8 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
 
 	AddStandartHisto(dd_4,"nVtxTr_plp_VtxR1_VtxZ010_",file_out);
 
-*/
+
+
  	std::map<float,string> bin_cut_txt={
   		{0,"Phys Runs (Raw)"},
   		{1,"CCT2"},
@@ -1372,7 +1396,7 @@ void run8_qa_new( std::string str_in_list, std::string str_in_list_plp, std::str
   	h_cutNo->SetMarkerStyle(8);
   	h_cutNo->SetMarkerSize(2);
   	h_cutNo->Write();
-
+*/
 	file_out->Close();
 
 	std::cout<<"QA_completed!"<<std::endl;
